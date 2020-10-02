@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withUISetup HOC renders successfully 1`] = `
+<DummyComponent
+  history={Array []}
+/>
+`;

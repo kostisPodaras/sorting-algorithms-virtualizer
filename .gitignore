@@ -1,0 +1,25 @@
+# Project dependencies
+node_modules
+
+# Build directories
+.cache
+public/
+dist/
+
+# IDE directories
+.DS_Store
+.idea
+.vscode
+.history
+
+# Test Coverage directory
+coverage
+
+# Files
+yarn.lock
+package-lock.json
+yarn-error.log
+report*
+
+# Gatsby redux cache
+reduxcache*
