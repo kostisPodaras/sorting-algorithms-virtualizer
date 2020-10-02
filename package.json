@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "@ote/product-catalogue",
+  "name": "nextdot-template",
   "version": "1.0.0",
   "author": "OTE",
-  "description": "OTE Product Catalogue Project",
+  "description": "Nextdot Template",
   "repository": {
     "type": "git",
     "url": "TODO: add repo url here"

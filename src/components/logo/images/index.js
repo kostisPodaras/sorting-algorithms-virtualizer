@@ -1,3 +1,3 @@
-import logo from './logo.svg';
+import logo from './nextdot.png';
 
 export { logo };
