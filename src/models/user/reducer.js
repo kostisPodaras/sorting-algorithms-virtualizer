@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import { signInUser } from './actions';
+import { signInUser, signOutUser } from './actions';
 
 const initialState = {};
 
@@ -11,6 +11,7 @@ const reducer = handleActions(
       id: 'test_user_id',
       name: 'test_user_name',
     }),
+    [signOutUser.succeeded.type]: () => initialState,
   },
   initialState,
 );

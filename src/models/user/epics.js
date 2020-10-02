@@ -2,12 +2,15 @@ import { mapTo } from 'rxjs/operators';
 
 import { ofType, combineEpics } from 'core/models/epics';
 
-import { signInUser } from './actions';
+import { signInUser, signOutUser } from './actions';
 
 // TODO: remove..
-const testEpic = (action$) =>
+const signInTestEpic = (action$) =>
   action$.pipe(ofType(signInUser.type), mapTo(signInUser.succeeded()));
 
-const epics = combineEpics(testEpic);
+const signOutTestEpic = (action$) =>
+  action$.pipe(ofType(signOutUser.type), mapTo(signOutUser.succeeded()));
+
+const epics = combineEpics(signInTestEpic, signOutTestEpic);
 
 export default epics;
