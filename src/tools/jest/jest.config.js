@@ -39,7 +39,8 @@ module.exports = {
   ],
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    '^core/(.*)': `${ROOT_DIR}/../ote-core/$1`,
+    '^core/(.*)': `${SRC_DIR}/core/$1`,
+    // '^core/(.*)': `${ROOT_DIR}/../ote-core/$1`,
     '^components/(.*)': `${SRC_DIR}/components/$1`,
     '^config$': `${ROOT_DIR}/config`,
     '^models/(.*)': `${SRC_DIR}/models/$1`,

@@ -33,7 +33,7 @@ const createStore = (preloadedState) => {
   const composeEnhancers = process.env.DEPLOY_BUILD
     ? compose
     : composeWithDevTools({
-        name: 'ote',
+        name: 'Agile Actors',
         trace: true,
         traceLimit: 25,
       });
