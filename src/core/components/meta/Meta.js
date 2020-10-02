@@ -3,8 +3,8 @@ import { Helmet } from 'react-helmet';
 
 type Props = {
   children: HTMLElement | Object | [],
-  title: string,
-  description: string,
+  title?: string,
+  description?: string,
   siteTitle?: string,
   siteDescription?: string,
   url?: string,
@@ -63,6 +63,8 @@ Meta.defaultProps = {
   url: '',
   absoluteImageUrl: '',
   canonicalLink: '',
+  description: '',
+  title: '',
   noindex: false,
 };
 
