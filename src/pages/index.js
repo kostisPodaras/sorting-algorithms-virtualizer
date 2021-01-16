@@ -1,12 +1,12 @@
 import React from 'react';
 
 import UISetup from 'components/ui-setup';
-import Login from 'components/login';
+import App from 'components/app';
 
-const LoginPage = ({ data }: Props) => (
-  <UISetup content={data}>
-    <Login />
+const AppPage = () => (
+  <UISetup>
+    <App />
   </UISetup>
 );
 
-export default LoginPage;
+export default AppPage;

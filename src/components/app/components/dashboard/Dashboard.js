@@ -17,7 +17,7 @@ type Props = {
   signOutUser: () => {},
 };
 
-const Home = ({ classes, signOutUser }: Props) => (
+const Dashboard = ({ classes, signOutUser }: Props) => (
   <Grid
     container
     justify="center"
@@ -37,4 +37,4 @@ const Home = ({ classes, signOutUser }: Props) => (
 export default compose(
   withModelProps({ signOutUser }),
   withStyles(styles),
-)(Home);
+)(Dashboard);

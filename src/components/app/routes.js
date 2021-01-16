@@ -1,8 +1,8 @@
 import lazyLoad from 'core/components/lazyLoad';
 
-const Home =
+const Dashboard =
   process.env.NODE_ENV === 'production'
-    ? lazyLoad(() => import('./components/home'))
-    : require('./components/home').default;
+    ? lazyLoad(() => import('./components/dashboard'))
+    : require('./components/dashboard').default;
 
-export { Home };
+export { Dashboard };
