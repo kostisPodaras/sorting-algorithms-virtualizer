@@ -12,8 +12,6 @@ import 'raf/polyfill';
 
 import { isIE, isIE11 } from 'core/utils';
 
-import '_mock/setup';
-
 const onClientEntry = () => {
   if (isIE() && !isIE11() && window.location.pathname !== '/ie/') {
     window.location = '/ie/';

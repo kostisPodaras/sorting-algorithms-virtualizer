@@ -4,69 +4,20 @@ import merge from 'lodash/merge';
 import palette from './palette';
 import typography from './typography';
 
-// TODO: Replace fonts...
-
-import CFAstyStdBoldWoff from '../fonts/CFAstyStd-Bold.woff';
-import CFAstyStdBookWoff from '../fonts/CFAstyStd-Book.woff';
-import CFAstyStdBookOblique from '../fonts/CFAstyStd-BookOblique.woff';
-import CFAstyStdLight from '../fonts/CFAstyStd-Light.woff';
-import CFAstyStdMedium from '../fonts/CFAstyStd-Medium.woff';
-import CFAstyStdMediumOblique from '../fonts/CFAstyStd-MediumOblique.woff';
-
-const cfAstyStdBold = {
-  fontFamily: 'CFAstyStd-Bold',
-  src: `local('CFAstyStd-Bold'), url(${CFAstyStdBoldWoff}) format('woff')`,
-};
-
-const cfAstyStdBook = {
-  fontFamily: 'CFAstyStd-Book',
-  src: `local('CFAstyStd-Book'), url(${CFAstyStdBookWoff}) format('woff')`,
-};
-
-const cfAstyStdBookOblique = {
-  fontFamily: 'CFAstyStd-BookOblique',
-  src: `local('CFAstyStd-BookOblique'), url(${CFAstyStdBookOblique}) format('woff')`,
-};
-
-const cfAstyStdLight = {
-  fontFamily: 'CFAstyStd-Light',
-  src: `local('CFAstyStd-Light'), url(${CFAstyStdLight}) format('woff')`,
-};
-
-const cfAstyStdMedium = {
-  fontFamily: 'CFAstyStd-Medium',
-  src: `local('CFAstyStd-Medium'), url(${CFAstyStdMedium}) format('woff')`,
-};
-
-const cfAstyStdMediumOblique = {
-  fontFamily: 'CFAstyStd-MediumOblique',
-  src: `local('CFAstyStd-MediumOblique'), url(${CFAstyStdMediumOblique}) format('woff')`,
-};
-
 const muiTheme = createMuiTheme({
   props: {
     MuiWithWidth: {
       initialWidth: 'lg', // Breakpoint being globally set 🌎!
     },
-    MuiButtonBase: {
-      disableRipple: true, // No more ripple, on the whole application 💣!
-    },
-  },
-  breakpoints: {
-    keys: ['xs', 'sm', 'md', 'lg', 'xl'],
-    values: { xs: 360, sm: 768, md: 960, lg: 1366, xl: 1920 },
   },
   typography: {
     useNextVariants: true,
   },
   palette,
-  shadows: [
-    'none',
-    '0px 1px 2px rgba(0, 0, 0, 0.12)', // Level 1 (Rest) according to Design System
-    '0px 1px 8px rgba(0, 0, 0, 0.12)', // Level 2 (Hover) according to Design System
-    '0px 1px 24px rgba(0, 0, 0, 0.12)', // Level 5 (Popovers) according to Design System
-    '0px 6px 16px rgba(0, 0, 0, 0.06)', // Level 6 (Modals) according to Design System
-  ],
+  breakpoints: {
+    keys: ['sm', 'md', 'lg', 'xl'],
+    values: { sm: 320, md: 768, lg: 1024, xl: 1440 },
+  },
 });
 
 muiTheme.typography = merge(
@@ -76,132 +27,150 @@ muiTheme.typography = merge(
 
 // Overrides
 muiTheme.overrides = {
-  MuiCssBaseline: {
-    '@global': {
-      '@font-face': [
-        cfAstyStdBold,
-        cfAstyStdBook,
-        cfAstyStdBookOblique,
-        cfAstyStdLight,
-        cfAstyStdMedium,
-        cfAstyStdMediumOblique,
-      ],
+  MuiChip: {
+    root: {
+      height: 'auto',
+      padding: '3px 4px',
+      backgroundColor: muiTheme.palette.accent2[100],
     },
   },
-  // MuiDialog: {
-  //   root: {
-  //     zIndex: 3000,
-  //   },
-  // },
-  // MuiSnackbarContent: {
-  //   root: {
-  //     backgroundColor: muiTheme.palette.primary.main,
-  //   },
-  // },
-  // MuiFormLabel: {
-  //   root: {
-  //     color: `${muiTheme.palette.text.primary} !important`,
-  //   },
-  //   focused: {
-  //     color: `${muiTheme.palette.primary.main} !important`,
-  //   },
-  // },
-  // MuiInput: {
-  //   underline: {
-  //     '&:after': {
-  //       borderBottom: `2px solid ${muiTheme.palette.primary.main}`,
-  //     },
-  //   },
-  // },
-  // MuiButton: {
-  //   root: {
-  //     fontFamily: cfAstyStdBook,
-  //     boxShadow: 'none !important',
-  //     zIndex: 3,
-  //     borderRadius: 99,
-  //     fontWeight: 400,
-  //     backgroundColor: 'transparent',
-  // fontFamily: 'Montserrat, Helvetica, Arial, sans-serif',
-  //     border: `1px solid ${muiTheme.palette.common.white}`,
-  //     color: muiTheme.palette.common.white,
-  //     '&:hover': {
-  //       backgroundColor: 'transparent',
-  //     },
-  // },
-  //   textPrimary: {
-  //     border: `1px solid ${muiTheme.palette.primary.main}`,
-  //     color: muiTheme.palette.primary.main,
-  //   },
-  //   textSecondary: {
-  //     border: `1px solid ${muiTheme.palette.secondary.main}`,
-  //     color: muiTheme.palette.secondary.main,
-  //   },
-  //   containedPrimary: {
-  //     border: 'none !important',
-  //   },
-  //   disabled: {
-  //     border: `1px solid rgba(0, 0, 0, 0.26)`,
-  //   },
-  //   sizeSmall: {
-  //     padding: `10px 20px`,
-  //   },
-  //   sizeLarge: {
-  //     padding: `20px 70px`,
-  //   },
-  // },
-  // MuiTypography: {
-  //   h1: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 46,
-  //     },
-  //     [muiTheme.breakpoints.down('xs')]: {
-  //       fontSize: 32,
-  //     },
-  //   },
-  //   h2: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 28,
-  //     },
-  //   },
-  //   h3: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 28,
-  //     },
-  //   },
-  //   h4: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 20,
-  //     },
-  //   },
-  //   h5: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 18,
-  //     },
-  //     [muiTheme.breakpoints.down('xs')]: {
-  //       fontSize: 16,
-  //     },
-  //   },
-  //   h6: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 16,
-  //     },
-  //   },
-  //   subtitle1: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 14,
-  //     },
-  //   },
-  //   body1: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 14,
-  //     },
-  //   },
-  //   body2: {
-  //     [muiTheme.breakpoints.down('sm')]: {
-  //       fontSize: 12,
-  //     },
-  //   },
-  // },
+  MuiFormLabel: {
+    root: {
+      color: `${muiTheme.palette.text.primary} !important`,
+    },
+    focused: {
+      color: `${muiTheme.palette.primary[500]} !important`,
+    },
+  },
+  MuiInput: {
+    // underline: {
+    //   '&:after': {
+    //     borderBottom: `2px solid ${muiTheme.palette.primary[500]}`,
+    //   },
+    // },
+    input: {
+      '&::placeholder': {
+        color: `${muiTheme.palette.text.grey[11]}`,
+        fontSize: 12,
+        lineHeight: '16px',
+        fontWeight: 400,
+      },
+      color: `${muiTheme.palette.text.grey[1]}`,
+      fontSize: 14,
+      lineHeight: '20px',
+      fontWeight: 400,
+    },
+  },
+  MuiAppBar: {
+    root: {
+      backgroundColor: `${muiTheme.palette.common.white} !important`,
+    },
+  },
+  MuiTab: {
+    textColorPrimary: {
+      color: muiTheme.palette.grey[600],
+    },
+  },
+  MuiButton: {
+    root: {
+      boxShadow: 'none !important',
+      borderRadius: 6,
+      padding: 0,
+      minWidth: 0,
+    },
+    text: {
+      padding: 0,
+    },
+    contained: {
+      '&:disabled': {
+        backgroundColor: muiTheme.palette.primary[500],
+        color: muiTheme.palette.text.white,
+        opacity: 0.3,
+      },
+    },
+    containedPrimary: {
+      backgroundColor: muiTheme.palette.primary[500],
+      color: muiTheme.palette.common.white,
+
+      '&:hover': {
+        backgroundColor: muiTheme.palette.primary[500],
+        opacity: 0.7,
+      },
+    },
+    containedSecondary: {
+      backgroundColor: muiTheme.palette.common.white,
+      color: muiTheme.palette.primary[500],
+
+      '&:hover': {
+        backgroundColor: muiTheme.palette.common.white,
+        opacity: 0.7,
+      },
+
+      // if i want to style disabled styles of secondary color
+      // '&:disabled': {
+      //   backgroundColor: muiTheme.palette.common.white,
+      //   color: muiTheme.palette.text.white,
+      //   opacity: 0.3,
+      // },
+    },
+    containedSizeLarge: {
+      padding: `10px 43px 14px 42px`,
+      fontSize: 16,
+      lineHeight: '24px',
+      fontWeight: 500,
+    },
+    containedSizeSmall: {
+      padding: `4px 16px`,
+      fontSize: 16,
+      lineHeight: '24px',
+      fontWeight: 500,
+    },
+    textSizeSmall: {
+      fontSize: 16,
+      lineHeight: '24px',
+      fontWeight: 500,
+      padding: 0,
+    },
+    startIcon: {
+      marginRight: 3,
+    },
+  },
+  MuiToggleButtonGroup: {
+    borderRadius: 42,
+
+    groupedHorizontal: {
+      '&:last-child': {
+        borderRadius: 42,
+      },
+
+      '&:not(:last-child)': {
+        borderRadius: 42,
+        borderTopRightRadius: 'none',
+        borderBottomRightRadius: 'none',
+      },
+    },
+  },
+  MuiToggleButton: {
+    root: {
+      padding: '8px 12px',
+      color: muiTheme.palette.text.black,
+
+      '&$selected': {
+        backgroundColor: muiTheme.palette.primary[500],
+        color: muiTheme.palette.text.white,
+
+        '&:hover': {
+          backgroundColor: muiTheme.palette.primary[500],
+          color: muiTheme.palette.text.white,
+        },
+      },
+    },
+  },
+  MuiAutocomplete: {
+    input: {
+      width: '100% !important',
+    },
+  },
 };
 
 export default muiTheme;
