@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import withStyles from '@material-ui/core/styles/withStyles';
 
+import { Virtualizer } from './components';
 import styles from './styles';
 
 type Props = {
@@ -9,13 +10,8 @@ type Props = {
 };
 
 const Dashboard = ({ classes }: Props) => (
-  <Grid
-    container
-    justify="center"
-    alignItems="center"
-    direction="column"
-    className={classes.container}>
-    Dashboard
+  <Grid className={classes.container}>
+    <Virtualizer />
   </Grid>
 );
 
