@@ -3,7 +3,7 @@ import muiTheme from './muiTheme';
 const theme = {
   ...muiTheme,
   app: {
-    headerHeight: 50,
+    headerHeight: 90,
     sidebarWidth: 50,
     maxWidth: 1920,
     minWidth: 320,

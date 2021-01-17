@@ -1,4 +1,4 @@
-const styles = ({ breakpoints, palette, app }) => ({
+const styles = ({ palette, app }) => ({
   container: {
     height: '100%',
     display: 'grid',
@@ -7,13 +7,13 @@ const styles = ({ breakpoints, palette, app }) => ({
     '  header'
     '  body '`,
 
-    [breakpoints.up('md')]: {
-      gridTemplateColumns: `${app.sidebarWidth}px 1fr`,
-      gridTemplateRows: `${app.headerHeight}px 1fr`,
-      gridTemplateAreas: `
-          'sidebar  header'
-          'sidebar  body '`,
-    },
+    // [breakpoints.up('md')]: {
+    //   gridTemplateColumns: `${app.sidebarWidth}px 1fr`,
+    //   gridTemplateRows: `${app.headerHeight}px 1fr`,
+    //   gridTemplateAreas: `
+    //       'sidebar  header'
+    //       'sidebar  body '`,
+    // },
   },
   body: {
     position: 'relative',
