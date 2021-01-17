@@ -10,7 +10,9 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 import { compose } from 'core/utils';
 import { withToggleValue } from 'core/components/withToggleValue';
+import { withModelProps } from 'core/components/model-props';
 import withSelectValue from 'core/components/withSelectValue';
+import { generateNewArray } from 'models/array';
 
 import algorithms from './config';
 import styles from './styles';
@@ -22,6 +24,7 @@ type Props = {
 
   onToggle: () => {},
   onSelect: () => {},
+  generateNewArray: () => {},
 };
 
 const Header = ({
@@ -30,17 +33,18 @@ const Header = ({
   selectValue,
   onToggle,
   onSelect,
+  generateNewArray,
 }: Props) => (
   <div className={classes.container}>
     <AppBar position="static" classes={{ root: classes.rootBar }}>
       <Toolbar classes={{ root: classes.rootToolbar }}>
         <Grid container justify="space-between" alignItems="center">
           <div className={classes.column}>
-            <Typography variant="body2" className={classes.text}>
+            <Typography
+              onClick={generateNewArray}
+              variant="body2"
+              className={classes.text}>
               Generate New Array
-            </Typography>
-            <Typography variant="caption" className={classes.text}>
-              Start sorting
             </Typography>
           </div>
 
@@ -92,5 +96,6 @@ const Header = ({
 export default compose(
   withToggleValue,
   withSelectValue,
+  withModelProps({ generateNewArray }),
   withStyles(styles),
 )(Header);
